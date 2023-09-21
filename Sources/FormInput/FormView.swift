@@ -9,15 +9,25 @@ import UIKit
 
 // FormView sınıfı
 public class FormView: UIView {
+    
+    public var formElements: [FormInputView] {
+        get {
+            stackView.formElements
+        }
+        set {
+            stackView.formElements = newValue
+        }
+    }
+    
     var scrollView: FormScrollView = FormScrollView()
     var contentView: FormScrollContentView { scrollView.contentView }
     var stackView: FormStackView { contentView.stackView }
 
-    var parentViewController: UIViewController?
-    var dataSource: FormViewDataSource?
-    var flowLayout: FormViewDelegateFlowLayout?
+    public var parentViewController: UIViewController?
+    public var dataSource: FormViewDataSource?
+    public var flowLayout: FormViewDelegateFlowLayout?
 
-    var formJson: [String: Any] {
+    public var formJson: [String: Any] {
         var newDictionary: [String: Any] = [:]
         for i in stackView.formElements {
             if let name = i.name {
@@ -27,7 +37,7 @@ public class FormView: UIView {
         return newDictionary
     }
 
-    func reloadData() {
+    public func reloadData() {
         stackView.reloadData()
     }
 

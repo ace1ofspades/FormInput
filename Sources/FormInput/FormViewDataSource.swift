@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FormViewDataSource {
+public protocol FormViewDataSource {
     func numberOfInputs() -> Int
     func formView(_ formView: FormView?, viewForRowAt index: Int) -> FormInputView
 }

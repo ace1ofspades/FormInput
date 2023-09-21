@@ -8,7 +8,7 @@
 import Foundation
 
 // FormInputTypes enum
-enum FormInputType {
+public enum FormInputType {
     case SmallText
     case LargeText
     case Picker

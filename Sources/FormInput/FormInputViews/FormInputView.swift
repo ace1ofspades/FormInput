@@ -8,7 +8,7 @@
 import UIKit
 
 // FormInputView sınıfı
-class FormInputView: UIView {
+public class FormInputView: UIView {
     var name: String?
     var value: Any?
     var type: FormInputType?
@@ -34,7 +34,7 @@ class FormInputView: UIView {
     }
 }
 
-extension FormInputView {
+public extension FormInputView {
     static func create(name: String? = nil, value: Any? = nil, type: FormInputType) -> FormInputView {
         switch type {
         case .SmallText:
