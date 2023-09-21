@@ -62,6 +62,6 @@ extension UIView {
 
 extension UIView {
     static var viewFromNib: Self? {
-        return Bundle.main.loadNibNamed(className, owner: nil)?.first as? Self
+        return Bundle.module.loadNibNamed(className, owner: nil)?.first as? Self
     }
 }
