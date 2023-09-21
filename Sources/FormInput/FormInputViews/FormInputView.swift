@@ -57,7 +57,7 @@ public extension FormInputView {
 
 extension UIView {
     static var className: String { String(describing: self.self) }
-    static var nib: UINib { UINib(nibName: Self.className, bundle: nil) }
+    static var nib: UINib { UINib(nibName: Self.className, bundle: Bundle.module) }
 }
 
 extension UIView {
