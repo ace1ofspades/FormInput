@@ -10,6 +10,16 @@ import UIKit
 class PlaceholderTextView: UITextView {
     private var placeholderManager: PlaceholderManager?
     
+    override var text: String! {
+        get {
+            return super.text
+        }
+        set {
+            super.text = newValue
+            placeholderManager?.textDidChange()
+        }
+    }
+    
     @IBInspectable var placeholder: String? {
         get {
             return placeholderManager?.placeholder

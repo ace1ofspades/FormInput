@@ -61,8 +61,8 @@ class PlaceholderManager: NSObject {
     private func removeObservers() {
         NotificationCenter.default.removeObserver(self, name: UITextView.textDidChangeNotification, object: textView)
     }
-
-    @objc private func textDidChange() {
+    
+    @objc func textDidChange() {
         placeholderLabel?.isHidden = !(textView?.text.isEmpty ?? true)
 
         if let maxCharacterCount = maxCharacterCount, let text = textView?.text, maxCharacterCount != 0, text.count > maxCharacterCount {
