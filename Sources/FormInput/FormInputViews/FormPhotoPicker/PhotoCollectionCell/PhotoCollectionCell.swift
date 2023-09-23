@@ -8,7 +8,10 @@
 import UIKit
 
 class PhotoCollectionCell: UICollectionViewCell {
-
+    
+    @IBOutlet var imageView:UIImageView!
+    @IBOutlet var playIcon:UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -7,51 +7,101 @@
 
 import UIKit
 
+public typealias ValidationCallback = (_ value: Any?, _ isRequired: Bool) -> Bool
 // FormInputView sınıfı
-public class FormInputView: UIView {
-    var name: String?
-    var value: Any?
-    var type: FormInputType?
-    var parentViewController: UIViewController? { (superview as? FormStackView)?.parentViewController }
+open class FormInputView: UIView {
+    public var name: String?
+    public var placeholder: String?
+    public var title: String?
+    public var value: Any?
+    public var initialItems: Any?
+    public var errorMessage: String?
+    public var isRequired: Bool = false
+    public var validationRule: ValidationCallback = { $0 != nil || !$1 }
+    
+    open func showValidation() {
+    }
 
-    func getDefaultHeight() -> CGFloat {
+    public var parentViewController: UIViewController? { (superview as? FormStackView)?.parentViewController }
+
+    open func getDefaultHeight() -> CGFloat {
         return 40
     }
 
-    convenience init(name: String? = nil, value: Any? = nil, type: FormInputType? = nil) {
+    func configure(
+        name: String? = nil,
+        placeholder: String? = nil,
+        title: String? = nil,
+        value: Any? = nil,
+        initialItems: Any? = nil,
+        errorMessage: String? = nil,
+        isRequired: Bool,
+        validationRule: @escaping ValidationCallback = { $0 != nil || !$1 }
+    ) {
+        self.name = name
+        self.placeholder = placeholder
+        self.title = title
+        self.value = value
+        self.initialItems = initialItems
+        self.errorMessage = errorMessage
+        self.isRequired = isRequired
+        self.validationRule = validationRule
+    }
+    
+    public convenience init(name: String? = nil,value: Any? = nil, isRequired: Bool = false) {
         self.init()
         self.name = name
         self.value = value
-        self.type = type
+        self.isRequired = isRequired
     }
 
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     }
 
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 }
 
 public extension FormInputView {
-    static func create(name: String? = nil, value: Any? = nil, type: FormInputType) -> FormInputView {
+    static func create(
+        name: String? = nil,
+        placeholder: String? = nil,
+        title: String? = nil,
+        value: Any? = nil,
+        errorMessage: String? = nil,
+        isRequired: Bool = false,
+        validationRule: @escaping ValidationCallback = { $0 != nil || !$1 },
+        type: FormInputType
+    ) -> FormInputView? {
+        var formInputView:FormInputView!
         switch type {
         case .SmallText:
-            return FormTextField(name: name, value: value, type: type)
+            guard let view = FormTextField.viewFromNib else { return nil }
+            formInputView = view
         case .LargeText:
-            if let view = FormTextView.viewFromNib {
-                view.configure(name: name, value: value, type: type)
-                return view
-            }
-            return FormTextView(name: name, value: value, type: type)
+            guard let view = FormTextView.viewFromNib else { return nil }
+            formInputView = view
+        case .TagText:
+            guard let view = FormTextFieldWithTags.viewFromNib else { return nil }
+            formInputView = view
         case .Picker:
-            return FormPickerView(name: name, value: value, type: type)
+            guard let view = FormPickerView.viewFromNib else { return nil }
+            formInputView = view
         case .PhotoPicker:
-            return FormPhotoPicker(name: name, value: value, type: type)
+            guard let view = FormPhotoPicker.viewFromNib else { return nil }
+            formInputView = view
         case .Switch:
-            return FormSwitch(name: name, value: value, type: type)
+            guard let view = FormSwitch.viewFromNib else { return nil }
+            formInputView = view
+        case .SubmitButton:
+            guard let view = FormSubmitButton.viewFromNib else { return nil }
+            formInputView = view
         }
+        
+        formInputView.configure(name: name, placeholder: placeholder, title: title, value: value, errorMessage: errorMessage, isRequired: isRequired, validationRule: validationRule)
+        return formInputView
     }
 }
 

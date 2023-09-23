@@ -11,7 +11,9 @@ import Foundation
 public enum FormInputType {
     case SmallText
     case LargeText
+    case TagText
     case Picker
     case Switch
     case PhotoPicker
+    case SubmitButton
 }

@@ -9,7 +9,7 @@ import UIKit
 
 // SearchToolDataSource, tablo verilerini sağlamak için kullanılacak.
 protocol SearchToolDataSource: AnyObject {
-    func numberOfSections(in resultTableView: UITableView) -> Int
+    func numberOfSections(inResult resultTableView: UITableView) -> Int
     func resultTableView(_ resultTableView: UITableView, numberOfRowsInSection section: Int) -> Int
     func resultTableView(_ resultTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     func resultTableView(_ resultTableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -25,7 +25,7 @@ protocol SearchToolDelegate: AnyObject {
 }
 
 extension SearchToolDataSource {
-    func numberOfSections(in resultTableView: UITableView) -> Int {
+    func numberOfSections(inResult resultTableView: UITableView) -> Int {
         return 1
     }
 

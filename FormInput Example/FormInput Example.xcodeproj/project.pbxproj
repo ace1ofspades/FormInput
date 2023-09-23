@@ -16,6 +16,7 @@
 		56DC01092ABC1F330034555E /* FormInput_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DC01082ABC1F330034555E /* FormInput_ExampleTests.swift */; };
 		56DC01132ABC1F330034555E /* FormInput_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DC01122ABC1F330034555E /* FormInput_ExampleUITests.swift */; };
 		56DC01152ABC1F330034555E /* FormInput_ExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DC01142ABC1F330034555E /* FormInput_ExampleUITestsLaunchTests.swift */; };
+		56DC01252ABC1FE90034555E /* FormInput in Frameworks */ = {isa = PBXBuildFile; productRef = 56DC01242ABC1FE90034555E /* FormInput */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		56DC010E2ABC1F330034555E /* FormInput ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FormInput ExampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56DC01122ABC1F330034555E /* FormInput_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInput_ExampleUITests.swift; sourceTree = "<group>"; };
 		56DC01142ABC1F330034555E /* FormInput_ExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInput_ExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		56DC01222ABC1F600034555E /* FormInput */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = FormInput; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DC01252ABC1FE90034555E /* FormInput in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +82,12 @@
 		56DC00E52ABC1F320034555E = {
 			isa = PBXGroup;
 			children = (
+				56DC01212ABC1F600034555E /* Packages */,
 				56DC00F02ABC1F320034555E /* FormInput Example */,
 				56DC01072ABC1F330034555E /* FormInput ExampleTests */,
 				56DC01112ABC1F330034555E /* FormInput ExampleUITests */,
 				56DC00EF2ABC1F320034555E /* Products */,
+				56DC01232ABC1FE90034555E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +132,21 @@
 			path = "FormInput ExampleUITests";
 			sourceTree = "<group>";
 		};
+		56DC01212ABC1F600034555E /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				56DC01222ABC1F600034555E /* FormInput */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		56DC01232ABC1FE90034555E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +163,9 @@
 			dependencies = (
 			);
 			name = "FormInput Example";
+			packageProductDependencies = (
+				56DC01242ABC1FE90034555E /* FormInput */,
+			);
 			productName = "FormInput Example";
 			productReference = 56DC00EE2ABC1F320034555E /* FormInput Example.app */;
 			productType = "com.apple.product-type.application";
@@ -602,6 +625,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		56DC01242ABC1FE90034555E /* FormInput */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FormInput;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 56DC00E62ABC1F320034555E /* Project object */;
 }

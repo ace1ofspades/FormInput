@@ -9,7 +9,26 @@ import UIKit
 
 class FormTextView: FormInputView {
     @IBOutlet var textView: PlaceholderTextView!
+    @IBOutlet var titleLabel: UILabel?
     
+    override var title: String? {
+        get {
+            titleLabel?.text
+        }
+        set {
+            titleLabel?.text = newValue
+        }
+    }
+
+    override var placeholder: String? {
+        get {
+            textView.placeholder
+        }
+        set {
+            textView.placeholder = newValue
+        }
+    }
+
     override var value: Any? {
         get {
             textView.text
@@ -23,12 +42,6 @@ class FormTextView: FormInputView {
         return 120
     }
 
-    func configure(name: String? = nil, value: Any? = nil, type: FormInputType? = nil) {
-        self.name = name
-        self.value = value
-        self.type = type
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -40,5 +53,9 @@ class FormTextView: FormInputView {
     }
 
     private func commonInit() {
+    }
+
+    override func showValidation() {
+        guard let errorMessage = errorMessage else { return }
     }
 }

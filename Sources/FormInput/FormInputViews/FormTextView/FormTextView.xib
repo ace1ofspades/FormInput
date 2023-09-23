@@ -15,50 +15,64 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="466"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" findInteractionEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b9h-Su-JbT" customClass="PlaceholderTextView" customModule="FormInput">
-                    <rect key="frame" x="0.0" y="59" width="393" height="373"/>
-                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="eWN-Tf-q2U">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="466"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhp-7B-9Y9">
+                            <rect key="frame" x="20" y="8" width="353" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" findInteractionEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b9h-Su-JbT" customClass="PlaceholderTextView" customModule="FormInput">
+                            <rect key="frame" x="20" y="30" width="353" height="428"/>
+                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <color key="textColor" systemColor="labelColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" flightNumber="YES"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Gönderi hakkında birşeyler yazın."/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="insetY">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="insetX">
+                                    <real key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterCount">
+                                    <integer key="value" value="1000"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" systemColor="systemGray5Color"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textView>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="WhY-Nq-ekS"/>
+                        <constraint firstItem="b9h-Su-JbT" firstAttribute="leading" secondItem="eWN-Tf-q2U" secondAttribute="leading" constant="20" id="Nad-Ei-iHP"/>
+                        <constraint firstItem="fhp-7B-9Y9" firstAttribute="leading" secondItem="eWN-Tf-q2U" secondAttribute="leading" constant="20" id="wdW-Wj-m7Y"/>
                     </constraints>
-                    <color key="textColor" systemColor="labelColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" flightNumber="YES"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Gönderi hakkında birşeyler yazın."/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="insetY">
-                            <real key="value" value="8"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="insetX">
-                            <real key="value" value="12"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterCount">
-                            <integer key="value" value="1000"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" systemColor="systemGray5Color"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="12"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="0.5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </textView>
+                    <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="b9h-Su-JbT" secondAttribute="trailing" id="IIf-YI-wJ0"/>
-                <constraint firstItem="b9h-Su-JbT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="RjZ-pF-hca"/>
-                <constraint firstItem="b9h-Su-JbT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="aRs-ce-VtR"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="b9h-Su-JbT" secondAttribute="bottom" id="nOv-sX-h9d"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eWN-Tf-q2U" secondAttribute="trailing" id="KSQ-J3-jQX"/>
+                <constraint firstItem="eWN-Tf-q2U" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="iQK-Yx-kGu"/>
+                <constraint firstItem="eWN-Tf-q2U" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lf4-26-rah"/>
+                <constraint firstAttribute="bottom" secondItem="eWN-Tf-q2U" secondAttribute="bottom" id="pke-kp-1pf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="textView" destination="b9h-Su-JbT" id="UBe-vx-Xmt"/>
+                <outlet property="titleLabel" destination="fhp-7B-9Y9" id="OXd-Iv-U0J"/>
             </connections>
             <point key="canvasLocation" x="-8.3969465648854964" y="156.33802816901408"/>
         </view>

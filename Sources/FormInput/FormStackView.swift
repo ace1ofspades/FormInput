@@ -11,13 +11,16 @@ import UIKit
 class FormStackView: UIStackView {
     var formElements: [FormInputView] = [] {
         didSet {
-            spacing = flowLayout?.spacing() ?? 12
+            spacing = flowLayout?.spacing() ?? formView?.defaultSpacing ?? 12
             arrangedSubviews.forEach({ removeArrangedSubview($0) })
             for (index, view) in formElements.enumerated() {
-                let insets = flowLayout?.formView(formView, insetForRowAt: index)
+                let insets = flowLayout?.formView(formView, insetForRowAt: index) ?? formView?.defaultInsets
                 let height = flowLayout?.formView(formView, heightForRowAt: index) ?? view.getDefaultHeight()
-                var constraints = ConstraintInset(left: insets?.left, right: insets?.right, height: height)
+                let constraints = ConstraintInset(left: insets?.left, right: insets?.right, height: height)
                 addArrangedSubview(view, WithConstraints: constraints)
+                if (index + 1 != formElements.count) {
+                    //addArrangedSubview(SeparatorView(), WithConstraints: ConstraintInset(left: 16))
+                }
             }
             layoutIfNeeded()
         }
@@ -41,5 +44,23 @@ class FormStackView: UIStackView {
             tempFormElements.append(view)
         }
         formElements = tempFormElements
+    }
+}
+
+class SeparatorView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        // Customize the separator's appearance here
+        backgroundColor = UIColor(white: 0.4, alpha: 0.2) // For example, a gray separator color
+        heightAnchor.constraint(equalToConstant: 0.4).isActive = true // Adjust the height as needed
     }
 }
