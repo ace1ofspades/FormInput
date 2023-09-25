@@ -28,7 +28,7 @@ open class FormInputView: UIView {
         return 40
     }
 
-    func configure(
+    open func configure(
         name: String? = nil,
         placeholder: String? = nil,
         title: String? = nil,
