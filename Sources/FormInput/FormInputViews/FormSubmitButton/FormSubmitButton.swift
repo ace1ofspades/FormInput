@@ -8,7 +8,7 @@
 import UIKit
 
 // FormSwitch sınıfı
-public class FormSubmitButton: FormInputView {
+open class FormSubmitButton: FormInputView {
     @IBOutlet var submitButton: UIButton! {
         didSet {
             submitButton.addTarget(self, action: #selector(submitButtonDidTapped), for: .touchUpInside)
@@ -35,7 +35,7 @@ public class FormSubmitButton: FormInputView {
         commonInit()
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }

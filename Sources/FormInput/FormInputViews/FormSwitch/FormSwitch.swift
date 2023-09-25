@@ -8,7 +8,7 @@
 import UIKit
 
 // FormSwitch sınıfı
-public class FormSwitch: FormInputView {
+open class FormSwitch: FormInputView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var switchButton: UISwitch!
 
@@ -34,12 +34,12 @@ public class FormSwitch: FormInputView {
         return 44
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }

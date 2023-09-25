@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class FormTextView: FormInputView {
+open class FormTextView: FormInputView {
     @IBOutlet var textView: PlaceholderTextView!
     @IBOutlet var titleLabel: UILabel?
     
@@ -47,7 +47,7 @@ public class FormTextView: FormInputView {
         commonInit()
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }

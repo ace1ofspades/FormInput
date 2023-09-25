@@ -8,7 +8,7 @@
 import UIKit
 
 // FormTextField sınıfı
-public class FormTextField: FormInputView {
+open class FormTextField: FormInputView {
     @IBOutlet var textField: InsetTextField!
     @IBOutlet var titleLabel: UILabel?
 
@@ -43,12 +43,12 @@ public class FormTextField: FormInputView {
         return 82
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }

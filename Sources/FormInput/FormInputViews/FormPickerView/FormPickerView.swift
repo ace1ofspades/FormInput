@@ -8,7 +8,7 @@
 import UIKit
 
 // FormPickerView sınıfı
-public class FormPickerView: FormInputView {
+open class FormPickerView: FormInputView {
     @IBOutlet var titleLabel: UILabel! {
         didSet {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapped))
@@ -70,12 +70,12 @@ public class FormPickerView: FormInputView {
         superview?.layoutSubviews()
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }

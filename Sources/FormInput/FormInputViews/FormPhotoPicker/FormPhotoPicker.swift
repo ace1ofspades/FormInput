@@ -10,7 +10,7 @@ import UIKit
 import YPImagePicker
 
 // FormPhotoPicker sınıfı
-public class FormPhotoPicker: FormInputView {
+open class FormPhotoPicker: FormInputView {
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet var collectionView: UICollectionView! {
         didSet {
@@ -65,12 +65,12 @@ public class FormPhotoPicker: FormInputView {
 //        superview?.layoutSubviews()
 //    }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }

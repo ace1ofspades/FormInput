@@ -8,7 +8,7 @@
 import UIKit
 
 // FormTextField sınıfı
-public class FormTextFieldWithTags: FormInputView {
+open class FormTextFieldWithTags: FormInputView {
     @IBOutlet var textField: InsetTextField! {
         didSet {
             textField.delegate = self
@@ -60,12 +60,12 @@ public class FormTextFieldWithTags: FormInputView {
         superview?.layoutSubviews()
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
