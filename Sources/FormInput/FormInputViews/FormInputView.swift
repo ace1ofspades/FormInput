@@ -18,15 +18,14 @@ open class FormInputView: UIView {
     public var errorMessage: String?
     public var isRequired: Bool = false
     public var validationRule: ValidationCallback = { $0 != nil || !$1 }
-    
+
     open func showValidation() {
     }
 
     public var parentViewController: UIViewController? { (superview as? FormStackView)?.parentViewController }
 
-    open func getDefaultHeight() -> CGFloat {
-        return 40
-    }
+    public var inputHeight: () -> CGFloat = { 40 }
+    open func getDefaultHeight() -> CGFloat { inputHeight() }
 
     open func configure(
         name: String? = nil,
@@ -47,8 +46,8 @@ open class FormInputView: UIView {
         self.isRequired = isRequired
         self.validationRule = validationRule
     }
-    
-    public convenience init(name: String? = nil,value: Any? = nil, isRequired: Bool = false) {
+
+    public convenience init(name: String? = nil, value: Any? = nil, isRequired: Bool = false) {
         self.init()
         self.name = name
         self.value = value
@@ -75,7 +74,7 @@ public extension FormInputView {
         validationRule: @escaping ValidationCallback = { $0 != nil || !$1 },
         type: FormInputType
     ) -> FormInputView? {
-        var formInputView:FormInputView!
+        var formInputView: FormInputView!
         switch type {
         case .SmallText:
             guard let view = FormTextField.viewFromNib else { return nil }
@@ -99,7 +98,7 @@ public extension FormInputView {
             guard let view = FormSubmitButton.viewFromNib else { return nil }
             formInputView = view
         }
-        
+
         formInputView.configure(name: name, placeholder: placeholder, title: title, value: value, errorMessage: errorMessage, isRequired: isRequired, validationRule: validationRule)
         return formInputView
     }
