@@ -62,12 +62,17 @@ class ViewController: UIViewController {
             guard let searchText = searchText else { return }
             let searchItems = searchItems.filter { $0.title?.localizedLowercase.contains(searchText.localizedLowercase) ?? false }
             callback(searchItems)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                callback(searchItems)
+            }
         }
         pickerInput?.fetchFilterArray = { $0.title == $1.title }
         pickerInput?.mapSelectedArray = { $0.item }
         pickerInput?.itemCount = 10
         pickerInput?.fetchPickerItems = { callback in
-            callback(items, pickerInput?.selectedItems as? [PickerItem] ?? [])
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                callback(items, pickerInput?.selectedItems as? [PickerItem] ?? [])
+            }
         }
 
         pickerInput?.value = selectedItems

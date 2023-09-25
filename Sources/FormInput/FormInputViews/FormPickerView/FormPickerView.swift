@@ -23,8 +23,8 @@ open class FormPickerView: FormInputView {
         }
     }
 
-    public var fetchPickerItems: (_ callback: PickerItemsCallback) -> Void = { _ in }
-    public var searchPickerItems: (_ searchText: String?, _ items: [PickerItem], _ callback: SearchItemsCallback) -> Void = { _, _, _ in }
+    public var fetchPickerItems: (_ callback: @escaping PickerItemsCallback) -> Void = { _ in }
+    public var searchPickerItems: (_ searchText: String?, _ items: [PickerItem], _ callback: @escaping SearchItemsCallback) -> Void = { _, _, _ in }
     public var itemSortingCallback: ItemSortingCallback = { ($0.title?.localizedLowercase ?? "") < ($1.title?.localizedLowercase ?? "") }
     public var fetchFilterArray: (_ item1: PickerItem, _ item2: PickerItem) -> Bool = { $0.id == $1.id }
     public var mapSelectedArray: (_ item: PickerItem) -> Any = { return $0 }
