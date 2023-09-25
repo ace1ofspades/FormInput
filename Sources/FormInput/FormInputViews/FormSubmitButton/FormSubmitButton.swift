@@ -26,25 +26,22 @@ open class FormSubmitButton: FormInputView {
         }
     }
 
-    open override func getDefaultHeight() -> CGFloat {
-        return 44
+    override open func getDefaultHeight() -> CGFloat {
+        return inputHeight()
     }
 
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required public init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
 
     private func commonInit() {
-        submitButtonTapped = {
-            guard let form = self.superview?.superview?.superview?.superview as? FormView else { return }
-            form.submit()
-        }
+        inputHeight = { 44 }
     }
 
     @objc func submitButtonDidTapped() {

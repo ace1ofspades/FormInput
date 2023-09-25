@@ -52,7 +52,7 @@ open class FormTextFieldWithTags: FormInputView {
     }
 
     open override func getDefaultHeight() -> CGFloat {
-        return 82 + 8 + tagCollectionView.contentSize.height
+        return inputHeight() + 8 + tagCollectionView.contentSize.height
     }
 
     override public func layoutSubviews() {
@@ -61,17 +61,18 @@ open class FormTextFieldWithTags: FormInputView {
         superview?.layoutSubviews()
     }
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required public init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
 
     private func commonInit() {
+        inputHeight = { 82 }
     }
     
     open override func showValidation() {

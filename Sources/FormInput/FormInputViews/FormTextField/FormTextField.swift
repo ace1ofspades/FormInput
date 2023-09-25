@@ -40,21 +40,22 @@ open class FormTextField: FormInputView {
         }
     }
 
-    open override func getDefaultHeight() -> CGFloat {
-        return 82
+    override open func getDefaultHeight() -> CGFloat {
+        return inputHeight()
     }
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required public init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
 
     private func commonInit() {
+        inputHeight = { 82 }
     }
 
     open override func showValidation() {

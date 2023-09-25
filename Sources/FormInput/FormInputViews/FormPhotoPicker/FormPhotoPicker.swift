@@ -56,27 +56,22 @@ open class FormPhotoPicker: FormInputView {
         parentViewController?.present(picker, animated: true)
     }
 
-    open override func getDefaultHeight() -> CGFloat {
-        return 136
+    override open func getDefaultHeight() -> CGFloat {
+        return inputHeight()
     }
 
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        heightConstraint?.constant = getDefaultHeight()
-//        superview?.layoutSubviews()
-//    }
-
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required public init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
 
     private func commonInit() {
+        inputHeight = { 136 }
     }
 
     open override func showValidation() {

@@ -62,7 +62,7 @@ open class FormPickerView: FormInputView {
     }
 
     open override func getDefaultHeight() -> CGFloat {
-        return 34 + tagCollectionView.contentSize.height
+        return inputHeight() + tagCollectionView.contentSize.height
     }
 
     override public func layoutSubviews() {
@@ -71,17 +71,18 @@ open class FormPickerView: FormInputView {
         superview?.layoutSubviews()
     }
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required public init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
 
     private func commonInit() {
+        inputHeight = { 34 }
     }
 
     func setTags() {
