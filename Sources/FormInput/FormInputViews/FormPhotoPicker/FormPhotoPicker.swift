@@ -55,7 +55,7 @@ open class FormPhotoPicker: FormInputView {
         parentViewController?.present(picker, animated: true)
     }
 
-    override public func getDefaultHeight() -> CGFloat {
+    open public func getDefaultHeight() -> CGFloat {
         return 136
     }
 
@@ -78,7 +78,7 @@ open class FormPhotoPicker: FormInputView {
     private func commonInit() {
     }
 
-    override public func showValidation() {
+    open public func showValidation() {
         guard let errorMessage = errorMessage else { return }
     }
 }

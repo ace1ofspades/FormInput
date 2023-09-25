@@ -39,7 +39,7 @@ open class FormTextField: FormInputView {
         }
     }
 
-    public override func getDefaultHeight() -> CGFloat {
+    open override func getDefaultHeight() -> CGFloat {
         return 82
     }
 
@@ -56,7 +56,7 @@ open class FormTextField: FormInputView {
     private func commonInit() {
     }
 
-    public override func showValidation() {
+    open override func showValidation() {
         guard let errorMessage = errorMessage else { return }
     }
 }

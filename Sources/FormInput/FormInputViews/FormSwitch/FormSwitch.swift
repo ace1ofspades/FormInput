@@ -30,7 +30,7 @@ open class FormSwitch: FormInputView {
         }
     }
 
-    public override func getDefaultHeight() -> CGFloat {
+    open override func getDefaultHeight() -> CGFloat {
         return 44
     }
 
@@ -47,7 +47,7 @@ open class FormSwitch: FormInputView {
     private func commonInit() {
     }
 
-    public override func showValidation() {
+    open override func showValidation() {
         guard let errorMessage = errorMessage else { return }
     }
 }

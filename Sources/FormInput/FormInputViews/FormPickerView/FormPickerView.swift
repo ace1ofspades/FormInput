@@ -60,7 +60,7 @@ open class FormPickerView: FormInputView {
         }
     }
 
-    override public func getDefaultHeight() -> CGFloat {
+    open public func getDefaultHeight() -> CGFloat {
         return 34 + tagCollectionView.contentSize.height
     }
 
@@ -117,7 +117,7 @@ open class FormPickerView: FormInputView {
         parentViewController?.navigationController?.pushViewController(pickerViewController, animated: true)
     }
 
-    override public func showValidation() {
+    open public func showValidation() {
         guard let errorMessage = errorMessage else { return }
     }
 }

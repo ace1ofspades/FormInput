@@ -50,7 +50,7 @@ open class FormTextFieldWithTags: FormInputView {
         }
     }
 
-    override public func getDefaultHeight() -> CGFloat {
+    open override func getDefaultHeight() -> CGFloat {
         return 82 + 8 + tagCollectionView.contentSize.height
     }
 
@@ -73,7 +73,7 @@ open class FormTextFieldWithTags: FormInputView {
     private func commonInit() {
     }
     
-    public override func showValidation() {
+    open override func showValidation() {
         guard let errorMessage = errorMessage else { return }
     }
     
