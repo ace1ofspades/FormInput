@@ -59,6 +59,7 @@ open class FormPickerView: FormInputView {
         }
         set {
             selectedItems = newValue as? [PickerItem]
+            tagCollectionView.isHidden = selectedItems?.count == 0
         }
     }
 
@@ -83,7 +84,7 @@ open class FormPickerView: FormInputView {
     }
 
     private func commonInit() {
-        inputHeight = { 34 }
+        inputHeight = { 42 }
     }
 
     func setTags() {
