@@ -8,7 +8,7 @@
 import UIKit
 
 // FormTextField sınıfı
-class FormTextFieldWithTags: FormInputView {
+public class FormTextFieldWithTags: FormInputView {
     @IBOutlet var textField: InsetTextField! {
         didSet {
             textField.delegate = self
@@ -23,7 +23,7 @@ class FormTextFieldWithTags: FormInputView {
         }
     }
     
-    override var title: String? {
+    public override var title: String? {
         get {
             titleLabel?.text
         }
@@ -32,7 +32,7 @@ class FormTextFieldWithTags: FormInputView {
         }
     }
 
-    override var placeholder: String? {
+    public override var placeholder: String? {
         get {
             textField.placeholder
         }
@@ -41,7 +41,7 @@ class FormTextFieldWithTags: FormInputView {
         }
     }
     var textList:[String] = []
-    override var value: Any? {
+    public override var value: Any? {
         get {
             textList
         }
@@ -73,7 +73,7 @@ class FormTextFieldWithTags: FormInputView {
     private func commonInit() {
     }
     
-    override func showValidation() {
+    public override func showValidation() {
         guard let errorMessage = errorMessage else { return }
     }
     
@@ -100,7 +100,7 @@ class FormTextFieldWithTags: FormInputView {
 
 
 extension FormTextFieldWithTags: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text?.replacingOccurrences(of: " ", with: ""), !text.isEmpty {
             textList.insert(text, at: 0)
             textField.text = ""

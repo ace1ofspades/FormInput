@@ -8,11 +8,11 @@
 import UIKit
 
 // FormTextField sınıfı
-class FormTextField: FormInputView {
+public class FormTextField: FormInputView {
     @IBOutlet var textField: InsetTextField!
     @IBOutlet var titleLabel: UILabel?
 
-    override var title: String? {
+    public override var title: String? {
         get {
             titleLabel?.text
         }
@@ -21,7 +21,7 @@ class FormTextField: FormInputView {
         }
     }
 
-    override var placeholder: String? {
+    public override var placeholder: String? {
         get {
             textField.placeholder
         }
@@ -30,7 +30,7 @@ class FormTextField: FormInputView {
         }
     }
 
-    override var value: Any? {
+    public override var value: Any? {
         get {
             textField.text
         }
@@ -39,7 +39,7 @@ class FormTextField: FormInputView {
         }
     }
 
-    override func getDefaultHeight() -> CGFloat {
+    public override func getDefaultHeight() -> CGFloat {
         return 82
     }
 
@@ -56,7 +56,7 @@ class FormTextField: FormInputView {
     private func commonInit() {
     }
 
-    override func showValidation() {
+    public override func showValidation() {
         guard let errorMessage = errorMessage else { return }
     }
 }

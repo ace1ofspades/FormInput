@@ -8,11 +8,11 @@
 import UIKit
 
 // FormSwitch sınıfı
-class FormSwitch: FormInputView {
+public class FormSwitch: FormInputView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var switchButton: UISwitch!
 
-    override var title: String? {
+    public override var title: String? {
         get {
             titleLabel.text
         }
@@ -21,7 +21,7 @@ class FormSwitch: FormInputView {
         }
     }
 
-    override var value: Any? {
+    public override var value: Any? {
         get {
             switchButton.isOn
         }
@@ -30,7 +30,7 @@ class FormSwitch: FormInputView {
         }
     }
 
-    override func getDefaultHeight() -> CGFloat {
+    public override func getDefaultHeight() -> CGFloat {
         return 44
     }
 
@@ -47,7 +47,7 @@ class FormSwitch: FormInputView {
     private func commonInit() {
     }
 
-    override func showValidation() {
+    public override func showValidation() {
         guard let errorMessage = errorMessage else { return }
     }
 }

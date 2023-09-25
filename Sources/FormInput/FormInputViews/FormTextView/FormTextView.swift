@@ -7,11 +7,11 @@
 
 import UIKit
 
-class FormTextView: FormInputView {
+public class FormTextView: FormInputView {
     @IBOutlet var textView: PlaceholderTextView!
     @IBOutlet var titleLabel: UILabel?
     
-    override var title: String? {
+    public override var title: String? {
         get {
             titleLabel?.text
         }
@@ -20,7 +20,7 @@ class FormTextView: FormInputView {
         }
     }
 
-    override var placeholder: String? {
+    public override var placeholder: String? {
         get {
             textView.placeholder
         }
@@ -29,7 +29,7 @@ class FormTextView: FormInputView {
         }
     }
 
-    override var value: Any? {
+    public override var value: Any? {
         get {
             textView.text
         }
@@ -38,11 +38,11 @@ class FormTextView: FormInputView {
         }
     }
 
-    override func getDefaultHeight() -> CGFloat {
+    public override func getDefaultHeight() -> CGFloat {
         return 120
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
@@ -55,7 +55,7 @@ class FormTextView: FormInputView {
     private func commonInit() {
     }
 
-    override func showValidation() {
+    public override func showValidation() {
         guard let errorMessage = errorMessage else { return }
     }
 }

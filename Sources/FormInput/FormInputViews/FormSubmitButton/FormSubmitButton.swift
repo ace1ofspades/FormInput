@@ -8,16 +8,16 @@
 import UIKit
 
 // FormSwitch sınıfı
-class FormSubmitButton: FormInputView {
+public class FormSubmitButton: FormInputView {
     @IBOutlet var submitButton: UIButton! {
         didSet {
             submitButton.addTarget(self, action: #selector(submitButtonDidTapped), for: .touchUpInside)
         }
     }
 
-    var submitButtonTapped: (() -> Void)?
+    public var submitButtonTapped: (() -> Void)?
 
-    override var title: String? {
+    public override var title: String? {
         get {
             submitButton.currentTitle
         }
@@ -26,7 +26,7 @@ class FormSubmitButton: FormInputView {
         }
     }
 
-    override func getDefaultHeight() -> CGFloat {
+    public override func getDefaultHeight() -> CGFloat {
         return 44
     }
 
@@ -51,7 +51,7 @@ class FormSubmitButton: FormInputView {
         submitButtonTapped?()
     }
 
-    override func showValidation() {
+    public override func showValidation() {
         guard let errorMessage = errorMessage else { return }
     }
 }
