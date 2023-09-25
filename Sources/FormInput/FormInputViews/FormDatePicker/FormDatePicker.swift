@@ -10,7 +10,22 @@ import UIKit
 // FormSwitch sınıfı
 open class FormDatePicker: FormInputView {
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var datePicker: UIDatePicker! {
+        didSet {
+            datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+        }
+    }
+
+    @objc func datePickerValueChanged(sender: UIDatePicker) {
+        // Handle date picker value changes here
+        onDateChanged(sender.date)
+        let selectedDate = sender.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let formattedDate = dateFormatter.string(from: selectedDate)
+
+        print("Selected Date: \(formattedDate)")
+    }
 
     override public var title: String? {
         get {
@@ -21,6 +36,8 @@ open class FormDatePicker: FormInputView {
         }
     }
 
+    public var onDateChanged: (_ newDate: Date) -> Void = { _ in }
+
     public var minimumDate: Date? {
         get {
             datePicker.minimumDate
@@ -29,6 +46,7 @@ open class FormDatePicker: FormInputView {
             datePicker.minimumDate = newValue
         }
     }
+
     public var maximumDate: Date? {
         get {
             datePicker.maximumDate
