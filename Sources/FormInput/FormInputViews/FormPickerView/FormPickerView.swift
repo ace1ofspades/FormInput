@@ -30,7 +30,8 @@ open class FormPickerView: FormInputView {
     public var mapSelectedArray: (_ item: PickerItem) -> Any = { return $0 }
     
     public var itemCount:Int? = nil
-
+    public var pickerTableViewCell: (_ item: PickerItem) -> UITableViewCell? = { _ in nil }
+    public var searchResultCell: (_ item: PickerItem) -> UITableViewCell? = { _ in nil }
     override public var title: String? {
         get {
             titleLabel.text
@@ -112,6 +113,8 @@ open class FormPickerView: FormInputView {
             self.setTags()
         }
         pickerViewController.itemCount = itemCount
+        pickerViewController.pickerTableViewCell = pickerTableViewCell
+        pickerViewController.searchResultCell = searchResultCell
         pickerViewController.searchPickerItems = searchPickerItems
         pickerViewController.fetchFilterArray = fetchFilterArray
         pickerViewController.fetchPickerItems = fetchPickerItems

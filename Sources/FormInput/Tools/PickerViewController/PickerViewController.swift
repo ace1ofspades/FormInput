@@ -21,8 +21,8 @@ public class PickerViewController: UIViewController, UITableViewDelegate, UITabl
     
     var selectionDoneCallback: (_ selectedItems: [PickerItem]) -> Void = { _ in }
 
-    var pickerTableViewCell: (_ item: PickerItem) -> UITableViewCell? = { _ in nil }
-    var searchResultCell: (_ item: PickerItem) -> UITableViewCell? = { _ in nil }
+    public var pickerTableViewCell: (_ item: PickerItem) -> UITableViewCell? = { _ in nil }
+    public var searchResultCell: (_ item: PickerItem) -> UITableViewCell? = { _ in nil }
     public var fetchFilterArray: (_ item1: PickerItem, _ item2:PickerItem) -> Bool = {  $0.id == $1.id }
 
     var items: [PickerItem] = [] {
