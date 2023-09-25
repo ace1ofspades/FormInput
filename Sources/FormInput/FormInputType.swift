@@ -15,5 +15,6 @@ public enum FormInputType {
     case Picker
     case Switch
     case PhotoPicker
+    case DatePicker
     case SubmitButton
 }

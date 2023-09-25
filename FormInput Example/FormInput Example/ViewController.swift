@@ -20,12 +20,14 @@ class ViewController: UIViewController {
         let pickerInput = FormInputView.create(name: "picker", type: .Picker) as? FormPickerView
         let photoPickerInput = FormInputView.create(name: "photos", type: .PhotoPicker)
         let largeTextInput = FormInputView.create(name: "largeText", type: .LargeText)
+        let datePickerInput = FormInputView.create(name: "largeText", type: .DatePicker)
         let submitButton = FormInputView.create(name: "submit", type: .SubmitButton)
 
         smallTextInput?.placeholder = "Tek Satır Yazısı"
         tagTextInput?.placeholder = "Tek Satır Yazısı"
         largeTextInput?.placeholder = "Büyük Yazı"
         smallTextInput?.title = "Başlık"
+        datePickerInput?.title = "Başlık"
         tagTextInput?.title = "Tagler"
         largeTextInput?.title = "Açıklama"
         switchInput?.title = "Buton aç kapa"
@@ -89,6 +91,7 @@ class ViewController: UIViewController {
             tagTextInput,
             largeTextInput,
             pickerInput,
+            datePickerInput,
             switchInput,
             submitButton,
         ]

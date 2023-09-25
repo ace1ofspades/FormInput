@@ -94,6 +94,9 @@ public extension FormInputView {
         case .Switch:
             guard let view = FormSwitch.viewFromNib else { return nil }
             formInputView = view
+        case .DatePicker:
+            guard let view = FormDatePicker.viewFromNib else { return nil }
+            formInputView = view
         case .SubmitButton:
             guard let view = FormSubmitButton.viewFromNib else { return nil }
             formInputView = view
