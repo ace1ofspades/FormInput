@@ -26,6 +26,7 @@ open class FormPhotoPicker: FormInputView {
         }
         set {
             titleLabel?.text = newValue
+            titleLabel?.isHidden = newValue == nil
         }
     }
 

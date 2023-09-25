@@ -29,6 +29,7 @@ open class FormTextFieldWithTags: FormInputView {
         }
         set {
             titleLabel?.text = newValue
+            titleLabel?.isHidden = newValue == nil
         }
     }
 

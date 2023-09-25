@@ -37,6 +37,7 @@ open class FormPickerView: FormInputView {
         }
         set {
             titleLabel.text = newValue
+            titleLabel?.isHidden = newValue == nil
         }
     }
 

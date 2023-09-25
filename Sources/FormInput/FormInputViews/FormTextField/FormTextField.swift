@@ -18,6 +18,7 @@ open class FormTextField: FormInputView {
         }
         set {
             titleLabel?.text = newValue
+            titleLabel?.isHidden = newValue == nil
         }
     }
 

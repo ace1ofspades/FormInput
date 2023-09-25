@@ -17,6 +17,7 @@ open class FormTextView: FormInputView {
         }
         set {
             titleLabel?.text = newValue
+            titleLabel?.isHidden = newValue == nil
         }
     }
 
